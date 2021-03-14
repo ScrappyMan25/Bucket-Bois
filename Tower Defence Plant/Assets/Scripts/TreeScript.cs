@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class TreeScript : MonoBehaviour
 {
     public int Health = 0;
     public int rate_Of_Decay = 0;
@@ -17,12 +17,21 @@ public class Tree : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Trigger");
-        print(other.ToString());
+        if(other.tag == "Player")
+        {
+            //GameObject Player = other.gameObject;
+            Material temp = other.GetComponentInChildren<MeshRenderer>().material;
+            temp.color = Color.green;
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
-        print("Trigger");
-        print(other.ToString());
+        if (other.tag == "Player")
+        {
+            GameObject Player = other.gameObject;
+            Material temp = Player.GetComponentInChildren<MeshRenderer>().material;
+            temp.color = Color.red;
+        }
     }
 }
