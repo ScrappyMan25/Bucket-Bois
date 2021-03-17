@@ -14,18 +14,14 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        turret = FindClosestTurret();
-        float TargetDistance = Vector3.Distance(target.position, transform.position);       
-        float TurretDistance = Vector3.Distance(turret.transform.position, transform.position);
-        if (TargetDistance > TurretDistance)
+        try
         {
-            Vector3 turretDir = turret.transform.position - transform.position;
-            transform.Translate(turretDir.normalized * speed * Time.deltaTime, Space.World);
+            Vector3 targetDir = target.position - transform.position; //Finds the direction
+            transform.Translate(targetDir.normalized * speed * Time.deltaTime, Space.World); //Move toward the object
         }
-        else
+        catch
         {
-            Vector3 targetDir = target.position - transform.position;
-            transform.Translate(targetDir.normalized * speed * Time.deltaTime, Space.World);
+            target = GameObject.Find("Cube").transform;
         }
     }
 
@@ -49,15 +45,13 @@ public class Enemy : MonoBehaviour
         return closest;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if(collision.gameObject.name == "Bullet")
-        {
-            health -= 10;
-        }
-        if(health<=0)
-        {
-            Destroy(gameObject);
-        }
+        target = other.transform;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        target = GameObject.Find("Cube").transform;
     }
 }
