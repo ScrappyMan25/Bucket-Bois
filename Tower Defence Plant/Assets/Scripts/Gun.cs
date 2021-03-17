@@ -4,10 +4,9 @@ using System.Collections;
 public class Gun : MonoBehaviour
 {
     public float damage = 10f;
-    public float range = 100f;
     public float TimeToReload = 2f;
-    public float ammoCount = 50f;
-    public float maxAmmo = 50f;
+    public float ammoCount = 25f;
+    public float maxAmmo = 25f;
     private bool isReloading = false;
 
     public GameObject bulletPrefab;

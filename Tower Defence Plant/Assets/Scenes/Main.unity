@@ -172,7 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
-  ammoCount: 50
+  TimeToReload: 2
+  ammoCount: 25
+  maxAmmo: 25
   bulletPrefab: {fileID: 8698662100962707554, guid: a84ee637c6a281c44af322e26ace6a00,
     type: 3}
   fpsCam: {fileID: 1154132619}
