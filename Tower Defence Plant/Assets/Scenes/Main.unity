@@ -127,6 +127,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1947032820}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &379341860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379341861}
+  - component: {fileID: 379341862}
+  m_Layer: 0
+  m_Name: PlayerGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &379341861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379341860}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.409, y: 1.444, z: 1.908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1095575182}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &379341862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379341860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44e20aeea6e38a4db108fd9fc1e2e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 100
+  ammoCount: 50
+  bulletPrefab: {fileID: 8698662100962707554, guid: a84ee637c6a281c44af322e26ace6a00,
+    type: 3}
+  fpsCam: {fileID: 1154132619}
 --- !u!1 &509202207
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +397,18 @@ Transform:
 --- !u!1 &1095575179 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 262698702332212622, guid: 05203c580a68d8a45b7a68558c81362a,
+    type: 3}
+  m_PrefabInstance: {fileID: 262698701186978432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1095575182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 262698701236876082, guid: 05203c580a68d8a45b7a68558c81362a,
+    type: 3}
+  m_PrefabInstance: {fileID: 262698701186978432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1154132619 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 262698701705107973, guid: 05203c580a68d8a45b7a68558c81362a,
     type: 3}
   m_PrefabInstance: {fileID: 262698701186978432}
   m_PrefabAsset: {fileID: 0}
