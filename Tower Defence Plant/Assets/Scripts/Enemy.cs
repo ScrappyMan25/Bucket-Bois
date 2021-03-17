@@ -51,7 +51,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        target = other.transform; // Targets whatever object it finds.
+        if (other.tag == "Tree" || other.tag == "Player")
+        {
+            target = other.transform; // Targets if the tag is Tree or Player
+        }
     }
 
     private void OnTriggerExit(Collider other)
