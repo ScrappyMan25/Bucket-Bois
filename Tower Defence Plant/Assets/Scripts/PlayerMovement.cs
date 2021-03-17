@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public GameObject Tree;
+    private float temp = 5.353087f;
 
     Vector3 velocity;
     bool isGrounded;
@@ -51,8 +52,9 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         if (Input.GetKeyUp(KeyCode.E) && GetComponentInChildren<MeshRenderer>().material.color == Color.red)
-        {   
-            Instantiate(Tree, this.transform.position, Quaternion.identity);
+        {
+            Transform Trees = GameObject.Find("Trees").transform;
+            Instantiate(Tree, new Vector3(this.transform.position.x, Trees.position.y + temp, this.transform.position.z), Quaternion.identity, Trees);
         }
     }
 }

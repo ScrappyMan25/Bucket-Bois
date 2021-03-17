@@ -545,7 +545,7 @@ PrefabInstance:
     - target: {fileID: 3396426603188645164, guid: 2abe5ac890bc9ed4d9ffe664590bb1b6,
         type: 3}
       propertyPath: Health
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3396426603188645164, guid: 2abe5ac890bc9ed4d9ffe664590bb1b6,
         type: 3}
@@ -560,7 +560,7 @@ PrefabInstance:
     - target: {fileID: 6921080444336666712, guid: 2abe5ac890bc9ed4d9ffe664590bb1b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.93
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2abe5ac890bc9ed4d9ffe664590bb1b6, type: 3}
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1453965427040469205, guid: dd462b28c30e23c4b8fa110bd526e52f, type: 3}
-  totalEnemy: 200
+  totalEnemy: 0
   spawnRange: 150
 --- !u!4 &2066632155
 Transform:
