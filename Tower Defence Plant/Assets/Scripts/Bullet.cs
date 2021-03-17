@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
         {
            
             Debug.Log("Hit Enemy");
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(10);
             Destroy(gameObject);
         }
 

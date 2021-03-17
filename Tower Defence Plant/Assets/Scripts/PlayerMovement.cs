@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerHealth = 3f;
     public float playerMoney = 0f;
-    public float currentWave = 0f;
     float timePlayedDecimal = 0f;
     public string timePlayed;
 
