@@ -4,34 +4,46 @@ using UnityEngine;
 
 public class TreeScript : MonoBehaviour
 {
-    public int Health = 0;
-    public int rate_Of_Decay = 0;
-    public float AOE = 10f;
-    public SphereCollider Range;
+    //Red Not in Range. 
+    //Green - AOE Range
+    //Blue Water Range
 
-    private void OnEnable()
+    public float Health = 100;
+    public float Max_Health = 100;
+    public float rate_Of_Decay = 1f;
+    public float AOE_Radius = 5;
+    public float water_Radius = 3;
+
+    public GameObject Player;
+    public GameObject aoe_range;
+    public GameObject water_range;
+
+
+    private void Start()
     {
-        print("Started");
-        Range.radius = AOE;
+        aoe_range.GetComponent<SphereCollider>().radius = AOE_Radius;
+        water_range.GetComponent<BoxCollider>().size = new Vector3(water_Radius, water_Radius, water_Radius);
+        InvokeRepeating("Decay", 1f, 1f); // Calls Decay every Second
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void Decay()
     {
-        if(other.tag == "Player")
+        Health -= rate_Of_Decay;
+        if (Health <= 0)
         {
-            //GameObject Player = other.gameObject;
-            Material temp = other.GetComponentInChildren<MeshRenderer>().material;
-            temp.color = Color.green;
+            Player.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+            Destroy(gameObject);
         }
+    }
 
-    }
-    private void OnTriggerExit(Collider other)
+    private void Update()
     {
-        if (other.tag == "Player")
+        if (water_range.GetComponent<Tree_WaterRange>().in_Range)
         {
-            GameObject Player = other.gameObject;
-            Material temp = Player.GetComponentInChildren<MeshRenderer>().material;
-            temp.color = Color.red;
+            if(Health < Max_Health)
+            {
+                Health++;
+            }
         }
     }
+
 }
