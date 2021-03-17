@@ -19,13 +19,19 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerHealth = 3f;
     public float playerMoney = 0f;
+    public float waterAmount = 100f;
+    public float maxWaterCapacity = 100f;
     public float totalDeaths = 0f;
+    public float currentWave = 1f;
     public float wavesCleared = 0f;
     public float shotsFired = 0f;
     public float totalScore = 0f;
     public float plantsPlaced = 0f;
     float timePlayedDecimal = 0f;
+
+
     public string timePlayed;
+    public string difficulty = "normal";
 
     public GameObject Tree;
     private float temp = 5.353087f;
@@ -34,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public bool isDead = false;
     public bool completedRound = false;
+    public bool noWater = false;
     
     Camera cam;
 
@@ -134,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHealth = 0;
             isDead = true;
+            totalDeaths += 1;
             Debug.Log("player Died you suck!!!");
         }
         
@@ -181,6 +189,25 @@ public class PlayerMovement : MonoBehaviour
                 RemoveFocus();
             }
 
+        }
+    }
+
+
+    void takeWater()
+    {
+        if (waterAmount >= 10)
+        {
+            waterAmount -= 10;
+        }
+        
+
+    }
+
+    void checkWater()
+    {
+        if(waterAmount <= 0)
+        {
+            noWater = true;
         }
     }
 }
