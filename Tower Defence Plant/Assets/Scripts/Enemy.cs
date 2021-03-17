@@ -77,18 +77,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "SphereBullet") //If collide with a "SphereBullet" it will lose hp and will destroy itself when it reaches down to 0.
-        {
-            this.health -= 10;
-        }
-        if(health <=0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         health -= damage;
