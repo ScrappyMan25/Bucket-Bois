@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3694575185740174434}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  health: 100
+  health: 10
   attackDamage: 0
   attackSpeed: 0
 --- !u!65 &3694575185740174434

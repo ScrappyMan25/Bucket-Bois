@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mother
   - Tree
+  - Enemy
   layers:
   - Default
   - TransparentFX
