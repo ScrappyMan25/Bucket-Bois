@@ -595,7 +595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1453965427040469205, guid: dd462b28c30e23c4b8fa110bd526e52f, type: 3}
-  totalEnemy: 0
+  totalEnemy: 200
+  spawnRange: 150
 --- !u!4 &2066632155
 Transform:
   m_ObjectHideFlags: 0

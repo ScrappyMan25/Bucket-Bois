@@ -9,9 +9,8 @@ public class RandomSpawn : MonoBehaviour
     private int xPos;
     private int zPos;
     private int enemyCount = 0;
-    private int xSafePos;
-    private int zSafePos;
     public int totalEnemy;
+    public int spawnRange;
 
     private void Start()
     {
@@ -22,21 +21,21 @@ public class RandomSpawn : MonoBehaviour
     {
         while (enemyCount < totalEnemy)
         {
-            xPos = Random.Range(-150, 150);
-            zPos = Random.Range(-150, 150);
+            xPos = Random.Range(-spawnRange, spawnRange);
+            zPos = Random.Range(-spawnRange, spawnRange);
             Vector3 spawnRadius = new Vector3(xPos, 4, zPos);
-            if ((xPos > 100 || xPos < -100) || (zPos > 100 || zPos < -100))
+            if ((xPos > (spawnRange - 50) || xPos < -(spawnRange - 50)) || (zPos > (spawnRange - 50) || zPos < -(spawnRange - 50)))
             {
-                Instantiate(enemies[Random.Range(0, enemies.Length)], spawnRadius, Quaternion.identity);
+                Instantiate(enemies[Random.Range(0, enemies.Length)], spawnRadius, Quaternion.identity, transform);
                 yield return new WaitForSeconds(0.1f);
                 enemyCount++;
             }
-        }  
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        // Gizmos.DrawWireSphere(GameObject.FindGameObjectWithTag("Mother").transform.position, spawnRadius);
+        Gizmos.DrawWireSphere(GameObject.FindGameObjectWithTag("Mother").transform.position, spawnRange);
     }
 }

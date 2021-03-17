@@ -8,7 +8,7 @@ public class Waypoint : MonoBehaviour
     void Awake()
     {
         plants = new Transform[transform.childCount];
-        for(int i = 0; i < plants.Length; i++)
+        for (int i = 0; i < plants.Length; i++)
         {
             plants[i] = transform.GetChild(i);
         }
