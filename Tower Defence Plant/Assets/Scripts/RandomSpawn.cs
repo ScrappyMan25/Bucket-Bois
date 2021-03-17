@@ -26,7 +26,7 @@ public class RandomSpawn : MonoBehaviour
             Vector3 spawnRadius = new Vector3(xPos, 4, zPos);
             if ((xPos > (spawnRange-50) || xPos < -(spawnRange-50)) || (zPos > (spawnRange - 50) || zPos < -(spawnRange - 50)))
             {
-                Instantiate(enemies[Random.Range(0, enemies.Length)], spawnRadius, Quaternion.identity,transform);
+                Instantiate(enemies[Random.Range(0, enemies.Length)], spawnRadius, Quaternion.identity , transform);
                 yield return new WaitForSeconds(0.1f);
                 enemyCount++;
             }

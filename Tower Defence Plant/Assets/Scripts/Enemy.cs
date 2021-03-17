@@ -48,4 +48,16 @@ public class Enemy : MonoBehaviour
         }
         return closest;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Bullet")
+        {
+            health -= 10;
+        }
+        if(health<=0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
