@@ -35,7 +35,6 @@ public class Bullet : MonoBehaviour
            
             Debug.Log("Hit Enemy");
             collision.gameObject.GetComponent<Enemy>().TakeDamage(10);
-            GameObject.Find("FirstPersonPlayer").GetComponent<PlayerMovement>().nrOfEnemiesKilled += 1;
             Destroy(gameObject);
         }
 

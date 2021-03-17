@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //player variables
+    // gun variables are on the gun child object
     public CharacterController controller;
+    public Interactable focus;
 
     public float speed = 12f;
     public float gravity = -9.8f;
@@ -16,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerHealth = 3f;
     public float playerMoney = 0f;
+    public float totalDeaths = 0f;
+    public float wavesCleared = 0f;
+    public float shotsFired = 0f;
+    public float totalScore = 0f;
+    public float plantsPlaced = 0f;
     float timePlayedDecimal = 0f;
     public string timePlayed;
 
@@ -25,11 +33,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     public bool isDead = false;
+    public bool completedRound = false;
+    
+    Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -69,6 +80,49 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(Tree, new Vector3(this.transform.position.x, Trees.position.y + temp, this.transform.position.z), Quaternion.identity, Trees);
         }
 
+        // select an object
+        if (Input.GetKeyDown(KeyCode.F))
+
+        {
+            //create a ray
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                //object has to have interactable script attached to become selectable
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable != null)
+                {
+                    SetFocus(interactable);
+                    Debug.Log("you have selected " + interactable);
+                }
+
+
+            }
+
+
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                RemoveFocus();
+                Debug.Log("you have de-selected the item");
+
+            }
+        }
+
+        checkRadius();
+
         Die();
     }
 
@@ -80,8 +134,9 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHealth = 0;
             isDead = true;
+            Debug.Log("player Died you suck!!!");
         }
-        Debug.Log("player Died you suck!!!");
+        
     }
 
     void takeDamage()
@@ -92,5 +147,40 @@ public class PlayerMovement : MonoBehaviour
     void earnMoney()
     {
         playerMoney += 10f;
+    }
+
+    void resetPlayer()
+    {
+        playerHealth = 3;
+        playerMoney = 0;
+        nrOfEnemiesKilled = 0;
+    }
+
+    void SetFocus(Interactable newFocus)
+    {
+        focus = newFocus;
+       
+    }
+
+    void RemoveFocus()
+    {
+        focus = null;
+       
+
+    }
+
+    void checkRadius()
+    {
+        if (focus != null)
+        {
+
+
+            if (Vector3.Distance(focus.gameObject.transform.position, gameObject.transform.position) > focus.gameObject.GetComponent<Interactable>().radius)
+            {
+
+                RemoveFocus();
+            }
+
+        }
     }
 }

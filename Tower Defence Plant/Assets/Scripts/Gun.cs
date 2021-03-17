@@ -30,6 +30,7 @@ public class Gun : MonoBehaviour
                 bulletObject.transform.position = transform.position + transform.forward;
                 bulletObject.transform.forward = fpsCam.transform.forward;
                 ammoCount -= 1;
+                GameObject.Find("FirstPersonPlayer").GetComponent<PlayerMovement>().shotsFired += 1;
             }
         }
 
