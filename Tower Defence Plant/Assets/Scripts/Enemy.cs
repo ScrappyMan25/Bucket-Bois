@@ -4,49 +4,38 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10f;
     private Transform target;
-    private GameObject turret;
+    private Rigidbody enemyGrav;
     public int health;
     public int attackDamage;
     public float attackSpeed;
     private float attackCooldown = 0f;
+    private bool moving = true;
 
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Mother").transform; //sets the target to "Mother"
+        enemyGrav = gameObject.GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         attackCooldown -= Time.deltaTime; //You want to make sure the attackCooldown is always decreasing every frame.
-        try //Check incase the "Tree" object is being destroyed it will catch the error and change back the target to "Mother"
+        if (moving)
         {
-            Vector3 targetDir = target.position - transform.position; //Gets the direction of the targets position.
-            transform.Translate(targetDir.normalized * speed * Time.deltaTime, Space.World); //move into that direction toward the target.
-        }
-        catch
-        {
-            target = GameObject.FindGameObjectWithTag("Mother").transform;
-        }
-    }
-
-    public GameObject FindClosestTurret() //useless
-    {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Tree");
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
-        foreach (GameObject go in gos)
-        {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
+            try //Check incase the "Tree" object is being destroyed it will catch the error and change back the target to "Mother"
             {
-                closest = go;
-                distance = curDistance;
+                Vector3 targetDir = target.position - transform.position; //Gets the direction of the targets position.
+                transform.Translate(targetDir.normalized * speed * Time.deltaTime, Space.World); //move into that direction toward the target.
+            }
+            catch
+            {
+                target = GameObject.FindGameObjectWithTag("Mother").transform;
             }
         }
-        return closest;
+        else
+        {
+            enemyGrav.velocity = Vector3.zero;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -65,18 +54,39 @@ public class Enemy : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //Play attack animation
-        if(collision.gameObject.name == "FirstPersonPlayer" && attackCooldown <= 0f) //Checks to see what object it collides with. attackCooldown so that when colliding the hp doesn't drop every frame but instead "attackSpeed" second.
+        if(collision.gameObject.tag == "Player" && attackCooldown <= 0f) //Checks to see what object it collides with. attackCooldown so that when colliding the hp doesn't drop every frame but instead "attackSpeed" second.
         {
             GameObject player = GameObject.Find("FirstPersonPlayer");
-            //player.health -1;
+            player.GetComponent<PlayerMovement>().playerHealth -=1;
             attackCooldown = 1f / attackSpeed;
+            
         }
-        if (collision.gameObject.name == "Tree" && attackCooldown <= 0f)
+        if (collision.gameObject.tag == "Tree" && attackCooldown <= 0f)
         {
             Destroy(collision.gameObject);
             //GameObject plant = GameObject.Find("Tree");
             //plant.takedamage(attackDamage)
             //attackCooldown = 1f / attackSpeed;
+        }
+        if(collision.gameObject.tag == "Mother" && attackCooldown <=0)
+        {
+            
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Enemy")
+        {
+            moving = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag != "Mother" && collision.gameObject.tag != "Tree")
+        {
+            moving = true;
         }
     }
 
