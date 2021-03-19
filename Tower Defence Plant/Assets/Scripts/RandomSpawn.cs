@@ -5,32 +5,53 @@ using UnityEngine;
 public class RandomSpawn : MonoBehaviour
 {
     [SerializeField]
-    public GameObject[] enemies;
+    public Transform enemies;
     private int xPos;
     private int zPos;
-    private int enemyCount = 0;
-    public int totalEnemy;
     public int spawnRange;
+    public float timeBetweenWaves = 5f;
+    private int waveNumber = 1;
+    private int enemyCount = 7;
+    public float countDown = 0f;
+    private float calc;
 
-    private void Start()
+    private void Update()
     {
-        StartCoroutine(SpawnAnEnemy());
+        if(countDown <= 0f)
+        {
+            
+            SpawnWave();
+            countDown = timeBetweenWaves;
+        }
+        countDown -= Time.deltaTime;
+    }
+
+    void SpawnWave()
+    {
+        if (transform.childCount == 0)
+        {
+            
+            for (int i = 0; i < enemyCount; i++)
+            {
+                StartCoroutine(SpawnAnEnemy());
+            }
+            calc = 1.2f * enemyCount;
+            enemyCount = (int)Mathf.Round(calc);
+            waveNumber++;
+        }
     }
 
     IEnumerator SpawnAnEnemy()
     {
-        while (enemyCount < totalEnemy)
+        do
         {
             xPos = Random.Range(-spawnRange, spawnRange);
             zPos = Random.Range(-spawnRange, spawnRange);
-            Vector3 spawnRadius = new Vector3(xPos, 4, zPos);
-            if ((xPos > (spawnRange - 50) || xPos < -(spawnRange - 50)) || (zPos > (spawnRange - 50) || zPos < -(spawnRange - 50)))
-            {
-                Instantiate(enemies[Random.Range(0, enemies.Length)], spawnRadius, Quaternion.identity, transform);
-                yield return new WaitForSeconds(0.1f);
-                enemyCount++;
-            }
         }
+        while (!((xPos > (spawnRange - 50) || xPos < -(spawnRange - 50)) || (zPos > (spawnRange - 50) || zPos < -(spawnRange - 50))));
+        Vector3 spawnRadius = new Vector3(xPos, 4, zPos);
+        Instantiate(enemies, spawnRadius, Quaternion.identity, transform);
+        yield return new WaitForSeconds(0.1f);
     }
 
     private void OnDrawGizmos()

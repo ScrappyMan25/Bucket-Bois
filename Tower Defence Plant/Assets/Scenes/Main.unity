@@ -655,10 +655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9525c6e0f0c3446b606ec44f67032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 1453965427040469205, guid: dd462b28c30e23c4b8fa110bd526e52f, type: 3}
-  totalEnemy: 10
+  enemies: {fileID: 1453965427040469198, guid: dd462b28c30e23c4b8fa110bd526e52f, type: 3}
   spawnRange: 150
+  timeBetweenWaves: 5
+  countDown: 2
 --- !u!4 &2066632155
 Transform:
   m_ObjectHideFlags: 0
