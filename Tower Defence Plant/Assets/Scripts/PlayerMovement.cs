@@ -107,6 +107,19 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log("you have selected " + interactable);
                 }
 
+                if (interactable != null)
+                {
+                    if (interactable.gameObject.tag == "Mother")
+                    {
+
+
+                        takeWater(10);
+                        interactable.gameObject.GetComponent<TreeScript>().rate_Of_Decay -= 1f;
+                        
+                    }
+                }
+                   
+
 
             }
 
@@ -147,14 +160,14 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void takeDamage()
+    void takeDamage(float damage)
     {
-        playerHealth -= 1f;
+        playerHealth -= damage;
     }
 
-    void earnMoney()
+    void earnMoney(float money)
     {
-        playerMoney += 10f;
+        playerMoney += money;
     }
 
     void resetPlayer()
@@ -193,11 +206,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void takeWater()
+    void takeWater(float water)
     {
-        if (waterAmount >= 10)
+        if (waterAmount >= water)
         {
-            waterAmount -= 10;
+            waterAmount -= water;
         }
         
 

@@ -152,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379341860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.409, y: 1.444, z: 1.908}
+  m_LocalPosition: {x: 0.103, y: 1.444, z: 1.908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1095575182}
@@ -174,7 +174,7 @@ MonoBehaviour:
   TimeToReload: 2
   ammoCount: 25
   maxAmmo: 25
-  bulletPrefab: {fileID: 8698662100962707554, guid: a84ee637c6a281c44af322e26ace6a00,
+  bulletPrefab: {fileID: 4851092652029105225, guid: 189f5285f53d10f4693f791667075e31,
     type: 3}
   fpsCam: {fileID: 1154132619}
 --- !u!1 &509202207
