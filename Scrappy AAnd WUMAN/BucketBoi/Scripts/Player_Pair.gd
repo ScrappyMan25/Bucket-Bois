@@ -1,8 +1,8 @@
 extends Node
 
-var p1
-var p2
-var p
+var p1 # Player 1
+var p2 # player 2
+var p # Player current
 var scene = get_parent()
 
 # Called when the node enters the scene tree for the first time.
