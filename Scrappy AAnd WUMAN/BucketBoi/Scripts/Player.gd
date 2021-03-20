@@ -14,6 +14,10 @@ var bucket = null
 var scene = null
 var bucket_asset = preload("res://Scenes/Bocket.tscn")
 
+func _ready() -> void:
+	scale = Vector2(scale.x/2, scale.y/2)
+	pass
+
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	if velocity.y > MX_GRAVITY:
