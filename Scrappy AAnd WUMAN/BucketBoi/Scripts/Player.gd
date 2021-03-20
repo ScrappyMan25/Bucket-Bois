@@ -52,8 +52,7 @@ func swap_bucket():
 		temp = "2"
 	#spawn buck
 		bucket = bucket_asset.instance()
-		self.position.y += 10
-		bucket.position = Vector2(self.position.x, self.position.y)
+		bucket.position = Vector2(self.position.x+5, self.position.y)
 		scene.add_child(bucket)
 		bucket = null
 		inBucket = !inBucket
