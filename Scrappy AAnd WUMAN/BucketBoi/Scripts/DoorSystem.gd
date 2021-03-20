@@ -35,7 +35,7 @@ func PressurePlate_Door_type():
 	pass
 
 func _on_PressurePlate_body_entered(_body: Node) -> void:
-	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || _body.name.find("Bucket") > 0:
+	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || "Bocket" in _body.name:
 #		in_body = true
 		state = true
 		$PressurePlate/AnimatedSprite/Label.text = state_dict[state]
@@ -45,7 +45,8 @@ func _on_PressurePlate_body_entered(_body: Node) -> void:
 
 
 func _on_PressurePlate_body_exited(_body: Node) -> void:
-	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || _body.name.find("Bucket") >0:
+	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || "Bocket" in _body.name:
+		print(_body.name)
 		state = false
 		$PressurePlate/AnimatedSprite/Label.text = state_dict[state]
 		$Door.visible = !state

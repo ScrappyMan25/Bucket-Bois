@@ -12,20 +12,22 @@ var playerInBucketRange = false
 
 var bucket = null
 var scene = null
-var bucket_asset = preload("res://Scenes/Bucket.tscn")
+var bucket_asset = preload("res://Scenes/Bocket.tscn")
 
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	if velocity.y > MX_GRAVITY:
 		velocity.y = MX_GRAVITY
-	if focus:
-		get_input()
 	if is_on_floor():
 		velocity.y = 0
 		if !inBucket && focus:
 			if Input.is_action_just_pressed("ui_select"):
 				velocity.y = JUMP_SPEED
 	
+	if focus:
+		get_input()
+	else:
+		velocity.x = 0
 	move_and_slide(velocity, Vector2(0,-1))
 	pass
 
