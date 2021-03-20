@@ -52,6 +52,7 @@ func swap_bucket():
 	if inBucket:
 	#become bicket
 		temp = "2"
+		scale = Vector2(scale.x/2, scale.y/2)
 	#spawn buck
 		bucket = bucket_asset.instance()
 		bucket.position = Vector2(self.position.x+5, self.position.y)
@@ -61,8 +62,9 @@ func swap_bucket():
 		SPEED = 200
 		pass
 	elif !inBucket && playerInBucketRange:
-		temp = "1"
 		#despawn bucket
+		temp = "1"
+		scale = Vector2(scale.x*2, scale.y*2)
 		if bucket != null:
 			bucket.queue_free()
 		#become a thing
