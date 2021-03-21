@@ -6,7 +6,7 @@ export var MX_GRAVITY = 1500
 const JUMP_SPEED  = -300.0
 var SPEED = 200
 var velocity: = Vector2.ZERO
-
+var finish = false
 
 var focus : bool = true
 var inBucket:bool = false
@@ -84,6 +84,12 @@ func swap_bucket():
 
 func hit():
 	print("hit")
+	find_parent("LevelManager").reset()
+	pass
+
+func finish():
+	print("next Level")
+	find_parent("Player_Pair").check_finish()
 	pass
 
 func set_sprite(sprite):

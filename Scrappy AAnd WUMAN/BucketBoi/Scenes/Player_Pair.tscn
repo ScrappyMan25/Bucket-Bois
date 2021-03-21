@@ -16,3 +16,4 @@ position = Vector2( 665.343, 292.412 )
 position = Vector2( 512.78, 298.769 )
 current = true
 smoothing_enabled = true
+smoothing_speed = 3.0

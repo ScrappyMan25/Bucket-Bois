@@ -4,6 +4,7 @@ var p1 # Player 1
 var p2 # player 2
 var p # Player current
 var scene = get_parent()
+export (int) var swap_limit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,3 +39,6 @@ func _process(delta: float) -> void:
 		pass
 	$Camera2D.position = p.position
 	pass
+
+func check_finish() -> bool:
+	return p1.finish && p2.finish
