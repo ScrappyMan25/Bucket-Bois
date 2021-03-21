@@ -1,13 +1,15 @@
 extends KinematicBody2D
 
+#Movement Variables
 export var GRAVITY = 600
 export var MX_GRAVITY = 1500
 const JUMP_SPEED  = -300.0
 var SPEED = 200
 var velocity: = Vector2.ZERO
 
-var inBucket:bool = false
+
 var focus : bool = true
+var inBucket:bool = false
 var playerInBucketRange = false
 
 var bucket = null
@@ -56,8 +58,8 @@ func swap_bucket():
 	#set sprite
 	var temp : String
 	if inBucket:
-	#become bicket
-		temp = "2"
+	#become Player
+		temp = name
 		scale = Vector2(scale.x/2, scale.y/2)
 	#spawn buck
 		bucket = bucket_asset.instance()
@@ -69,7 +71,8 @@ func swap_bucket():
 		pass
 	elif !inBucket && playerInBucketRange:
 		#despawn bucket
-		temp = "1"
+		#become Bucekt
+		temp = "Bucket"
 		scale = Vector2(scale.x*2, scale.y*2)
 		if bucket != null:
 			bucket.queue_free()
@@ -81,4 +84,8 @@ func swap_bucket():
 
 func hit():
 	print("hit")
+	pass
+
+func set_sprite(sprite):
+	$AnimatedSprite.play(sprite)
 	pass
