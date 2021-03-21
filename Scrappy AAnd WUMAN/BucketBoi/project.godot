@@ -24,11 +24,6 @@ config/name="Bucket Boi"
 run/main_scene="res://Scenes/test.tscn"
 config/icon="res://Assets/icon.png"
 
-[display]
-
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-
 [input]
 
 ui_accept={
