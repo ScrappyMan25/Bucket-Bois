@@ -49,7 +49,7 @@ position = Vector2( 1078.82, 392.203 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Interface" parent="." instance=ExtResource( 9 )]
+[node name="Interface" parent="CanvasLayer" instance=ExtResource( 9 )]
 
 [editable path="DoorSystem"]
 
