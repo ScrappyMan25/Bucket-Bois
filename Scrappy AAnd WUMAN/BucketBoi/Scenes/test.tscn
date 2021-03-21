@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player_Pair.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Bocket.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Barrier.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/JumpingEnemy.tscn" type="PackedScene" id=8]
 
 [node name="Node" type="Node"]
 
@@ -40,6 +41,9 @@ position = Vector2( 438.234, 75.5773 )
 
 [node name="Barrier" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1097.72, 390.943 )
+
+[node name="JumpingEnemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 311.815, 330.523 )
 
 [editable path="DoorSystem"]
 
