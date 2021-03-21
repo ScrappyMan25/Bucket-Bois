@@ -2,16 +2,14 @@
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player_Pair.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interface/UI.tscn" type="PackedScene" id=3]
 
 [node name="Template_Level" type="Node"]
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 1441832, 3, 0, 1441833, 3, 0, 1441834, 3, 0, 1441835, 3, 0, 1507342, 3, 0, 1507343, 3, 0, 1507344, 3, 0, 1507345, 3, 0 )
 
 [node name="PlayerPair" parent="." instance=ExtResource( 2 )]
 swap_limit = 4
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Interface" parent="CanvasLayer" instance=ExtResource( 3 )]

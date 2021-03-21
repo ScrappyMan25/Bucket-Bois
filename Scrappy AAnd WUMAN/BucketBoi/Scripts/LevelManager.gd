@@ -8,9 +8,7 @@ var currentScene
 var l : int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 #	todo - auto add levels to the level Array *HERE*
-	
 	currentScene = level[l]
 	var temp = currentScene.instance() 
 	temp.name = "CurrentLevel"
