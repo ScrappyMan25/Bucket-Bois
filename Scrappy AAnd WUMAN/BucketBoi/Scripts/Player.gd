@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var GRAVITY = 300
+export var GRAVITY = 600
 export var MX_GRAVITY = 1500
 const JUMP_SPEED  = -300.0
 var SPEED = 200
