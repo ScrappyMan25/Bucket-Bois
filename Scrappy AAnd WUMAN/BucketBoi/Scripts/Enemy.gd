@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func _on_Area2D_body_entered(body: Node) -> void:
 	if (body.name == "1" || body.name == "2") && !body.inBucket:
 		#print
-		print("player " + body.name)
+		body.hit()
 		pass
 	else:
 		#boice back

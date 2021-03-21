@@ -11,7 +11,11 @@
 
 [node name="Node" type="Node"]
 
+[node name="JumpingEnemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 576.999, 379.009 )
+
 [node name="Bocket2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 22.6274, 193.747 )
 
 [node name="Bocket" parent="." instance=ExtResource( 6 )]
 position = Vector2( 187.612, 377.304 )
@@ -40,10 +44,7 @@ position = Vector2( 845.99, 361.682 )
 position = Vector2( 438.234, 75.5773 )
 
 [node name="Barrier" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1097.72, 390.943 )
-
-[node name="JumpingEnemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 311.815, 330.523 )
+position = Vector2( 1078.82, 392.203 )
 
 [editable path="DoorSystem"]
 

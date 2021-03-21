@@ -36,5 +36,9 @@ func _physics_process(delta: float) -> void:
 	velocity.y += appliedForce
 	velocity.y = clamp(velocity.y, -1200, 2000)
 	move_and_slide(velocity, Vector2.DOWN)
+	for i in get_slide_count():
+		if (get_slide_collision(i).collider.name == "1" || get_slide_collision(i).collider.name == "2") && !get_slide_collision(i).collider.inBucket:
+			get_slide_collision(i).collider.hit()
+			pass
 	pass
 

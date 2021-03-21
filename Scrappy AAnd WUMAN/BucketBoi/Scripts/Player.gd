@@ -33,6 +33,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 	move_and_slide(velocity, Vector2(0,-1))
+#	for i in get_slide_count():
+#		print(get_slide_collision(i).collider.name)
 	pass
 
 func get_input():
@@ -75,4 +77,8 @@ func swap_bucket():
 		inBucket = !inBucket
 		SPEED = 80
 	$AnimatedSprite.play(temp)
+	pass
+
+func hit():
+	print("hit")
 	pass
