@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 		pass
 	if Input.is_action_just_released("ui_page_down"):
 		next_Level()
+	if Input.is_action_just_released("ui_page_up"):
+		prev_Level()
 	pass
 
 func reset():
@@ -36,7 +38,15 @@ func next_Level():
 	currentScene = level[l]
 	var temp = currentScene.instance() 
 	temp.name = "CurrentLevel"
-	add_child(temp)
 	get_child(0).queue_free()
-	add_child(currentScene.instance())
+	add_child(temp)
+	pass
+
+func prev_Level():
+	l -= 1
+	currentScene = level[l]
+	var temp = currentScene.instance() 
+	temp.name = "CurrentLevel"
+	get_child(0).queue_free()
+	add_child(temp)
 	pass

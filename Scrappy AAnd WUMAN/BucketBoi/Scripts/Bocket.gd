@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = MX_GRAVITY
 	if is_on_floor():
 		velocity.y = 0
-	if control && Input.is_key_pressed(KEY_SHIFT):
+	if control && Input.is_key_pressed(KEY_SHIFT) && !player.inBucket:
 		move_and_slide(Vector2(player.velocity.x, velocity.y), Vector2(0,-1))
 		pass
 	else:
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	if body.name == "1" || body.name == "2":
+	if (body.name == "1" || body.name == "2"):
 		body.set_deferred("playerInBucketRange",true)
 		body.set_deferred("bucket",self)
 		print("InRange")
@@ -38,9 +38,8 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	pass # Replace with function body.
 
 func _on_Area2D_body_exited(body: Node) -> void:
-	if body.name == "1" || body.name == "2":
+	if (body.name == "1" || body.name == "2"):
 		body.set_deferred("playerInBucketRange",false)
-		#body.set_deferred("bucket",null)
 		print("OutRange")
 		control = false
 		player = null
