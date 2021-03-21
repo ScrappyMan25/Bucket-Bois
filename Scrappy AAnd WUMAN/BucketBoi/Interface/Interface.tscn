@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface/Image(Counter)/LifeCounter.tscn" type="PackedScene" id=1]
+
+[node name="Interface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Counter" type="HBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 216.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeCounter" parent="Counter" instance=ExtResource( 1 )]
+margin_right = 200.0
+margin_bottom = 40.0
