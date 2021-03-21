@@ -12,8 +12,9 @@ func _ready() -> void:
 #	todo - auto add levels to the level Array *HERE*
 	
 	currentScene = level[l]
-	currentScene.name = "CurrentLevel"
-	add_child(currentScene.instance())
+	var temp = currentScene.instance() 
+	temp.name = "CurrentLevel"
+	add_child(temp)
 	pass # Replace with function body.
 
 
@@ -35,7 +36,9 @@ func next_Level():
 	# TODO - Set a cundiotion to check array. Level. Lenth before trying to do l++
 	l += 1
 	currentScene = level[l]
-	currentScene.name = "CurrentLevel"	
+	var temp = currentScene.instance() 
+	temp.name = "CurrentLevel"
+	add_child(temp)
 	get_child(0).queue_free()
 	add_child(currentScene.instance())
 	pass
