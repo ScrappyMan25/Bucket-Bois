@@ -9,8 +9,10 @@ var scene = get_parent()
 func _ready() -> void:
 	p1 = $"1"
 	p1.focus = true
+	p1.set_sprite("1")
 	p2 = $"2"
 	p2.focus = false
+	p2.set_sprite("2")
 	p = $"1"
 	scene = get_parent()
 	p1.set_deferred("scene",scene)
