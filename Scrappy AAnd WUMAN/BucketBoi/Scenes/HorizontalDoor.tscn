@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/red_btn.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/DoorSystem.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/HoriDoor.gd" type="Script" id=2]
 [ext_resource path="res://Assets/green_btn.png" type="Texture" id=3]
 [ext_resource path="res://Assets/blue_btn.png" type="Texture" id=4]
 
@@ -9,7 +9,7 @@
 resource_name = "Door"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Door:position")
+tracks/0/path = NodePath("HorizontalDoor:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -68,35 +68,36 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 3.79352, 24 )
 
-[node name="DoorSystem" type="Node"]
+[node name="HorizontalDoorSystem" type="Node"]
 script = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/Door = SubResource( 1 )
 
-[node name="Door" type="StaticBody2D" parent="."]
-position = Vector2( 0, -125 )
+[node name="HorizontalDoor" type="StaticBody2D" parent="."]
+rotation = -1.5708
 z_index = 2
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Door"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HorizontalDoor"]
 position = Vector2( 0, 100 )
 scale = Vector2( 0.5, 2 )
 frames = SubResource( 2 )
 animation = "Blue"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalDoor"]
 position = Vector2( -0.246643, 100.051 )
 shape = SubResource( 3 )
 
-[node name="PressurePlate" type="Area2D" parent="."]
+[node name="HoriPressurePlate" type="Area2D" parent="."]
+rotation = -1.5708
 z_index = 2
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="PressurePlate"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HoriPressurePlate"]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
 animation = "Green"
 
-[node name="Label" type="Label" parent="PressurePlate/AnimatedSprite"]
+[node name="Label" type="Label" parent="HoriPressurePlate/AnimatedSprite"]
 margin_left = -32.0
 margin_top = -16.0
 margin_right = 32.0
@@ -108,7 +109,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoriPressurePlate"]
+position = Vector2( 15.7145, 0.280697 )
 shape = SubResource( 5 )
-[connection signal="body_entered" from="PressurePlate" to="." method="_on_PressurePlate_body_entered"]
-[connection signal="body_exited" from="PressurePlate" to="." method="_on_PressurePlate_body_exited"]
+[connection signal="body_entered" from="HoriPressurePlate" to="." method="_on_PressurePlate_body_entered"]
+[connection signal="body_exited" from="HoriPressurePlate" to="." method="_on_PressurePlate_body_exited"]

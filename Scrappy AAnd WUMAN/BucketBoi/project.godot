@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "EnemyModel",
 "language": "GDScript",
 "path": "res://Scripts/EnemyModel.gd"
+}, {
+"base": "Node",
+"class": "ParentDoor",
+"language": "GDScript",
+"path": "res://Scripts/ParentDoor.gd"
 } ]
 _global_script_class_icons={
-"EnemyModel": ""
+"EnemyModel": "",
+"ParentDoor": ""
 }
 
 [application]
