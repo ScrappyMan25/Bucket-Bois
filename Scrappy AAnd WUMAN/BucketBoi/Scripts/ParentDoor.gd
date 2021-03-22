@@ -18,19 +18,10 @@ var state = false
 
 var in_body = false
 
-func PressurePlate_Door_type():
-	current_color = colors[TYPE]
-	pressurePlate.play(current_color)
-	door.play(current_color)
-	pass
-
 func _on_PressurePlate_body_entered(_body: Node) -> void:
 	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || "Bocket" in _body.name:
-#		in_body = true
 		state = true
 		pressurePlate_Lable.text = state_dict[state]
-#		$Door.visible = !state
-#		$Door/CollisionShape2D.set_deferred("disabled", state)
 		animation.play("Door")
 	pass 
 
@@ -39,9 +30,7 @@ func _on_PressurePlate_body_exited(_body: Node) -> void:
 		print(_body.name)
 		state = false
 		pressurePlate_Lable.text = state_dict[state]
-#		$Door.visible = !state
-#		$Door/CollisionShape2D.set_deferred("disabled", state)
 		animation.play_backwards("Door")
-		pass # Replace with function body.
-
+		pass
+	pass
 
