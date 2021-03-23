@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/JumpingEnemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 12.0358 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -17,8 +18,10 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -12 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.633385, 0.633385 )
 frames = SubResource( 2 )
+offset = Vector2( 0, -16 )
