@@ -3,9 +3,9 @@ extends KinematicBody2D
 #Movement Variables
 export var GRAVITY = 600
 export var MX_GRAVITY = 1500
-const JUMP_SPEED  = -300.0
+const JUMP_SPEED  = -300
 var SPEED = 200
-var velocity: = Vector2.ZERO
+var velocity = Vector2.ZERO
 var finish = false
 
 var focus : bool = true
@@ -22,6 +22,8 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
+	var snap = Vector2.DOWN * 16 if !is_on_floor() else Vector2.ZERO
+	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0,-1))
 	if velocity.y > MX_GRAVITY:
 		velocity.y = MX_GRAVITY
 	if is_on_floor():
@@ -29,12 +31,11 @@ func _physics_process(delta):
 		if !inBucket && focus:
 			if Input.is_action_just_pressed("ui_select"):
 				velocity.y = JUMP_SPEED
-	
 	if focus:
 		get_input()
 	else:
 		velocity.x = 0
-	move_and_slide(velocity, Vector2(0,-1))
+		
 #	for i in get_slide_count():
 #		print(get_slide_collision(i).collider.name)
 	pass

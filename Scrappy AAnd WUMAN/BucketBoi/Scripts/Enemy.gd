@@ -9,9 +9,6 @@ func _physics_process(delta:float) -> void:
 	velocity.y = move_and_slide(velocity, FLOOR_NORMAL).y
 	pass
 
-func _process(delta: float) -> void:
-	pass
-
 func _on_Area2D_body_entered(body: Node) -> void:
 	if (body.name == "1" || body.name == "2") && !body.inBucket:
 		#print

@@ -675,8 +675,21 @@ position = Vector2( 1199.64, 388.427 )
 [node name="HorizontalDoor" parent="HorizontalDoorSystem" index="1"]
 position = Vector2( 583.325, 361.074 )
 
+[node name="AnimatedSprite" parent="HorizontalDoorSystem/HorizontalDoor" index="0"]
+animation = "Green"
+playing = true
+
+[node name="CollisionShape2D" parent="HorizontalDoorSystem/HorizontalDoor" index="1"]
+position = Vector2( 0.237671, 99.9687 )
+
 [node name="HoriPressurePlate" parent="HorizontalDoorSystem" index="2"]
 position = Vector2( 478.54, 432.488 )
+
+[node name="AnimatedSprite" parent="HorizontalDoorSystem/HoriPressurePlate" index="0"]
+playing = true
+
+[node name="Label" parent="HorizontalDoorSystem/HoriPressurePlate/AnimatedSprite" index="0"]
+text = "OFF"
 
 [node name="Barrier2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 646.307, 300.609 )
@@ -686,7 +699,7 @@ position = Vector2( 648.14, 51.7855 )
 
 [node name="Moving_Platform" parent="." instance=ExtResource( 13 )]
 position = Vector2( 630.623, 200.097 )
-speed = 2000
+speed = 200
 
 [editable path="DoorSystem"]
 

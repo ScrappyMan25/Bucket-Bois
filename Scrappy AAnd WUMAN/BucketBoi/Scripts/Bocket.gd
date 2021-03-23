@@ -20,10 +20,10 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		velocity.y = 0
 	if control && Input.is_key_pressed(KEY_SHIFT) && !player.inBucket:
-		move_and_slide(Vector2(player.velocity.x, velocity.y), Vector2(0,-1))
+		move_and_slide_with_snap(Vector2(player.velocity.x, velocity.y), Vector2(0,-1))
 		pass
 	else:
-		move_and_slide(velocity, Vector2(0,-1))
+		move_and_slide_with_snap(velocity, Vector2(0,-1))
 		pass
 	pass
 

@@ -18,6 +18,7 @@ var state = false
 
 var in_body = false
 
+
 func _on_PressurePlate_body_entered(_body: Node) -> void:
 	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || "Bocket" in _body.name:
 		state = true

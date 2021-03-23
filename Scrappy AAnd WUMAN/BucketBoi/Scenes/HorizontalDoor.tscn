@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -125 ) ]
+"values": [ Vector2( 583.325, 361.074 ), Vector2( 708.325, 361.074 ) ]
 }
 
 [sub_resource type="SpriteFrames" id=2]
@@ -28,14 +28,14 @@ animations = [ {
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Green",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Green",
 "speed": 5.0
 } ]
 
@@ -54,14 +54,14 @@ animations = [ {
 "name": "Blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Green",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Green",
 "speed": 5.0
 } ]
 
@@ -89,7 +89,6 @@ position = Vector2( -0.246643, 100.051 )
 shape = SubResource( 3 )
 
 [node name="HoriPressurePlate" type="Area2D" parent="."]
-rotation = -1.5708
 z_index = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="HoriPressurePlate"]
@@ -110,7 +109,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoriPressurePlate"]
-position = Vector2( 15.7145, 0.280697 )
+position = Vector2( 0.0389175, 0.280697 )
 shape = SubResource( 5 )
 [connection signal="body_entered" from="HoriPressurePlate" to="." method="_on_PressurePlate_body_entered"]
 [connection signal="body_exited" from="HoriPressurePlate" to="." method="_on_PressurePlate_body_exited"]
