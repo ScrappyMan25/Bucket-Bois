@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player_Pair.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/Barrier.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/JumpingEnemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Interface/UI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/FinishDetector.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/HorizontalDoor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16_CASTPIXEL-16_1_2.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Moving_Platform.tscn" type="PackedScene" id=13]
@@ -765,11 +764,19 @@ resource_local_to_scene = true
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
-[node name="FinishDetector" parent="." instance=ExtResource( 10 )]
-position = Vector2( 882.522, 406.81 )
+[node name="PlayerPair" parent="." instance=ExtResource( 2 )]
+
+[node name="2" parent="PlayerPair" index="1"]
+position = Vector2( 711.961, 395.55 )
+
+[node name="Player1_Finish" parent="PlayerPair" index="3"]
+position = Vector2( 874.426, 452.307 )
+
+[node name="Player2_Finish" parent="PlayerPair" index="4"]
+position = Vector2( 56.7517, 449.87 )
 
 [node name="JumpingEnemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 489.546, 373.964 )
+position = Vector2( 1431.35, 281.465 )
 
 [node name="Bocket2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 22.6274, 193.747 )
@@ -790,16 +797,8 @@ position = Vector2( 261.713, 431.866 )
 tile_set = SubResource( 32 )
 tile_data = PoolIntArray( 655413, 1, 0, 655414, 1, 1, 655415, 1, 1, 655416, 1, 2, 1900544, 1, 0, 1900545, 1, 1, 1900546, 1, 1, 1900547, 1, 1, 1900548, 1, 1, 1900549, 1, 1, 1900550, 1, 1, 1900551, 1, 1, 1900552, 1, 1, 1900553, 1, 1, 1900554, 1, 1, 1900555, 1, 1, 1900556, 1, 1, 1900557, 1, 1, 1900558, 1, 1, 1900559, 1, 1, 1900560, 1, 1, 1900561, 1, 1, 1900562, 1, 1, 1900563, 1, 1, 1900564, 1, 1, 1900565, 1, 1, 1900566, 1, 1, 1900567, 1, 1, 1900568, 1, 1, 1900569, 1, 1, 1900570, 1, 1, 1900571, 1, 1, 1900572, 1, 1, 1900573, 1, 1, 1900574, 1, 1, 1900575, 1, 1, 1900576, 1, 1, 1900577, 1, 1, 1900578, 1, 1, 1900579, 1, 1, 1900580, 1, 1, 1900581, 1, 1, 1900582, 1, 1, 1900583, 1, 1, 1900584, 1, 1, 1900585, 1, 1, 1900586, 1, 1, 1900587, 1, 1, 1900588, 1, 1, 1900589, 1, 1, 1900590, 1, 1, 1900591, 1, 1, 1900592, 1, 1, 1900593, 1, 1, 1900594, 1, 1, 1900595, 1, 1, 1900596, 1, 1, 1900597, 1, 1, 1900598, 1, 1, 1900599, 1, 1, 1900600, 1, 1, 1900601, 1, 1, 1900602, 1, 1, 1900603, 1, 1, 1900604, 1, 1, 1900605, 1, 1, 1900606, 1, 1, 1900607, 1, 2 )
 
-[node name="PlayerPair" parent="." instance=ExtResource( 2 )]
-
-[node name="1" parent="PlayerPair" index="0"]
-position = Vector2( 875.263, 125.125 )
-
-[node name="2" parent="PlayerPair" index="1"]
-position = Vector2( 146.211, 154.606 )
-
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 845.99, 361.682 )
+position = Vector2( 1375.75, 386.909 )
 
 [node name="Glacier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 421.416, 90.7134 )
@@ -829,7 +828,7 @@ playing = true
 text = "OFF"
 
 [node name="Barrier2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 629.489, 495.697 )
+position = Vector2( 621.08, 290.518 )
 
 [node name="Barrier3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 648.14, 51.7855 )
@@ -838,8 +837,8 @@ position = Vector2( 648.14, 51.7855 )
 position = Vector2( 630.623, 200.097 )
 speed = 200
 
-[editable path="DoorSystem"]
-
 [editable path="PlayerPair"]
+
+[editable path="DoorSystem"]
 
 [editable path="HorizontalDoorSystem"]

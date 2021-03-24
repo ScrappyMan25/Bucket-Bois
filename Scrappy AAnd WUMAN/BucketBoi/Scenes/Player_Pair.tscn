@@ -21,7 +21,6 @@ smoothing_speed = 3.0
 
 [node name="Player1_Finish" parent="." instance=ExtResource( 3 )]
 position = Vector2( 793.7, 312.718 )
-Player = 2
 
 [node name="Player2_Finish" parent="." instance=ExtResource( 3 )]
 position = Vector2( 92.0693, 325.417 )

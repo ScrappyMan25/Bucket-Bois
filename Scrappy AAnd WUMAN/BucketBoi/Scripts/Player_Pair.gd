@@ -11,9 +11,16 @@ func _ready() -> void:
 	p1 = $"1"
 	p1.focus = true
 	p1.set_sprite("1")
+	
+	$Player1_Finish.Player = "1"
+	$Player1_Finish/AnimatedSprite.play("1")
+	
 	p2 = $"2"
 	p2.focus = false
 	p2.set_sprite("2")
+	$Player2_Finish.Player = "2"
+	$Player2_Finish/AnimatedSprite.play("2")
+	
 	p = $"1"
 	scene = get_parent()
 	p1.set_deferred("scene",scene)
