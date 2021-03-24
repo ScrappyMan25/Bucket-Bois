@@ -807,6 +807,7 @@ position = Vector2( 421.416, 90.7134 )
 position = Vector2( 1029.78, 438.881 )
 
 [node name="HorizontalDoorSystem" parent="." instance=ExtResource( 11 )]
+Distance = 485
 
 [node name="HorizontalDoor" parent="HorizontalDoorSystem" index="1"]
 position = Vector2( -254.208, 379.574 )

@@ -19,14 +19,14 @@ func _ready() -> void:
 	pressurePlate_Lable.text = state_dict[state]
 	
 	animation.get_animation("Door").track_set_key_value(0, 0, Vector2($HorizontalDoor.position.x, $HorizontalDoor.position.y))
-	animation.get_animation("Door").track_set_key_time(0,0,1.0)
-	if Orientation == 1 && stopMove == false:	
+#	animation.get_animation("Door").track_set_key_time(0,1,1.0)
+	if Orientation == 1 && stopMove == false:
 		animation.get_animation("Door").track_set_key_value(0, 1, Vector2($HorizontalDoor.position.x+Distance, $HorizontalDoor.position.y))
-		animation.get_animation("Door").track_set_key_time(0,1,(Distance/Distance)/4)
+#		animation.get_animation("Door").track_set_key_time(0,1,(Distance/Distance)/4)
 		pass
 	if Orientation == 0 && stopMove == false:
 		animation.get_animation("Door").track_set_key_value(0, 1, Vector2($HorizontalDoor.position.x, $HorizontalDoor.position.y-Distance))
-		animation.get_animation("Door").track_set_key_time(0,1,(Distance/Distance)/4)
+#		animation.get_animation("Door").track_set_key_time(0,1,(Distance/Distance)/4)
 		pass
 	pass
 

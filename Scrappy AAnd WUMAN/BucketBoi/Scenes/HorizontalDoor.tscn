@@ -75,6 +75,7 @@ script = ExtResource( 2 )
 anims/Door = SubResource( 1 )
 
 [node name="HorizontalDoor" type="StaticBody2D" parent="."]
+position = Vector2( 583.325, 361.074 )
 rotation = -1.5708
 z_index = 2
 
