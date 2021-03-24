@@ -788,7 +788,7 @@ position = Vector2( 878.528, 220.621 )
 TYPE = 2
 
 [node name="Door" parent="DoorSystem" index="1"]
-position = Vector2( 368.416, 252.285 )
+position = Vector2( 391.961, 282.557 )
 
 [node name="PressurePlate" parent="DoorSystem" index="2"]
 position = Vector2( 261.713, 431.866 )
@@ -831,10 +831,11 @@ text = "OFF"
 position = Vector2( 621.08, 290.518 )
 
 [node name="Barrier3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 648.14, 51.7855 )
+position = Vector2( 1593.31, 431.871 )
 
 [node name="Moving_Platform" parent="." instance=ExtResource( 13 )]
-position = Vector2( 630.623, 200.097 )
+position = Vector2( 1185.61, 433.866 )
+Orientation = 1
 speed = 200
 
 [editable path="PlayerPair"]
