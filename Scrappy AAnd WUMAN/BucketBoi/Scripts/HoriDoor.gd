@@ -35,3 +35,14 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 		stopMove = true
 		pass
 	pass  
+
+func _process(delta):
+	if sound == true && !$PlatformSound.playing:
+		$PlatformSound.play()
+		sound = false
+		pass
+	if sound2 == true && !$PlatformLeave.playing:
+		$PlatformLeave.play()
+		sound2 = false
+		pass 
+	pass

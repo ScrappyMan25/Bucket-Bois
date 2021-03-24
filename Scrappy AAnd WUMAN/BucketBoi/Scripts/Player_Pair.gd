@@ -35,6 +35,7 @@ func swap():
 	else:
 		p = p1
 		pass
+	$SwapPlayer.play()
 	p.focus = true
 	pass
 
@@ -43,7 +44,7 @@ func swap():
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
 		swap_limit -= 1
-		if swap_limit < 0:
+		if swap_limit < 0:			
 			p.hit()
 		swap()
 		get_node("../UI").update_swap_counter(swap_limit)

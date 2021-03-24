@@ -7,7 +7,7 @@
 [ext_resource path="res://SFX/Sound_effects/Sound effects/Jump.wav" type="AudioStream" id=5]
 [ext_resource path="res://SFX/Sound_effects/Sound effects/walking_without_the_Bucket.wav" type="AudioStream" id=6]
 [ext_resource path="res://SFX/Sound_effects/Sound effects/toggleBucket.wav" type="AudioStream" id=7]
-[ext_resource path="res://SFX/Sound_effects/Sound effects/player_land.wav" type="AudioStream" id=8]
+[ext_resource path="res://SFX/Sound_effects/Sound effects/death.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.6939, 32.1499 )
@@ -52,6 +52,6 @@ volume_db = -20.0
 stream = ExtResource( 7 )
 volume_db = -20.0
 
-[node name="SoundLand" type="AudioStreamPlayer" parent="."]
+[node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -20.0

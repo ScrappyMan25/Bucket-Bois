@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player_Pair.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Barrier.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/JumpingEnemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Interface/UI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Music.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/HorizontalDoor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16_CASTPIXEL-16_1_2.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Moving_Platform.tscn" type="PackedScene" id=13]
@@ -776,7 +777,7 @@ position = Vector2( 874.426, 452.307 )
 position = Vector2( 56.7517, 449.87 )
 
 [node name="JumpingEnemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1431.35, 281.465 )
+position = Vector2( 600.542, 358.514 )
 
 [node name="Bocket2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 22.6274, 193.747 )
@@ -788,7 +789,10 @@ position = Vector2( 878.528, 220.621 )
 TYPE = 2
 
 [node name="Door" parent="DoorSystem" index="1"]
-position = Vector2( 391.961, 282.557 )
+position = Vector2( 358.107, 119.523 )
+
+[node name="CollisionShape2D" parent="DoorSystem/Door" index="1"]
+position = Vector2( 2.42609, 100.942 )
 
 [node name="PressurePlate" parent="DoorSystem" index="2"]
 position = Vector2( 261.713, 431.866 )
@@ -838,6 +842,8 @@ position = Vector2( 1593.31, 431.871 )
 position = Vector2( 1185.61, 433.866 )
 Orientation = 1
 speed = 200
+
+[node name="Music" parent="." instance=ExtResource( 10 )]
 
 [editable path="PlayerPair"]
 

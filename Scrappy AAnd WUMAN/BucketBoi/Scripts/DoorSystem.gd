@@ -18,3 +18,10 @@ func _ready() -> void:
 	animation.get_animation("Door").track_set_key_value(0, 0, Vector2($Door.position.x, $Door.position.y))
 	animation.get_animation("Door").track_set_key_value(0, 1, Vector2($Door.position.x, $Door.position.y-Distance))
 	pass
+
+func _process(delta):
+	if sound == true && !$DoorSound.playing:
+		$DoorSound.play()
+		sound = false
+		pass
+	pass
