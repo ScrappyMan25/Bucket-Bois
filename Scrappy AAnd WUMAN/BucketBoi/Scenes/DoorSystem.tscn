@@ -23,6 +23,11 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Green",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Red",
@@ -31,11 +36,6 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Blue",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Green",
 "speed": 5.0
 } ]
 
@@ -49,6 +49,11 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Green",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Red",
@@ -58,24 +63,18 @@ animations = [ {
 "loop": true,
 "name": "Blue",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Green",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 3.79352, 24 )
 
-[node name="DoorSystem" type="Node"]
+[node name="DoorSystem" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Door = SubResource( 1 )
 
 [node name="Door" type="StaticBody2D" parent="."]
-position = Vector2( 0, -125 )
 z_index = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Door"]
@@ -110,5 +109,3 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate"]
 shape = SubResource( 5 )
-[connection signal="body_entered" from="PressurePlate" to="." method="_on_PressurePlate_body_entered"]
-[connection signal="body_exited" from="PressurePlate" to="." method="_on_PressurePlate_body_exited"]
