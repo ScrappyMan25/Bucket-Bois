@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Pick up Item.wav-80f303d155482772f4fab246649a1a52.sample"
+
+[deps]
+
+source_file="res://SFX/Sound_effects/Sound effects/Pick up Item.wav"
+dest_files=[ "res://.import/Pick up Item.wav-80f303d155482772f4fab246649a1a52.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

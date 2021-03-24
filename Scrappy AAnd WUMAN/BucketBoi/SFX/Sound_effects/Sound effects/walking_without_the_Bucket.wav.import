@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/walking_without_the_Bucket.wav-4c38dad2d424346992a948faff38f01a.sample"
+
+[deps]
+
+source_file="res://SFX/Sound_effects/Sound effects/walking_without_the_Bucket.wav"
+dest_files=[ "res://.import/walking_without_the_Bucket.wav-4c38dad2d424346992a948faff38f01a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

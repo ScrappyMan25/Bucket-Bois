@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit Theme(normal Looped).wav-98dc06b197c1b5d4a0180f85bef7e16d.sample"
+
+[deps]
+
+source_file="res://SFX/Sound_effects/Sound effects/8bit Theme(normal Looped).wav"
+dest_files=[ "res://.import/8bit Theme(normal Looped).wav-98dc06b197c1b5d4a0180f85bef7e16d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
