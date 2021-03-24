@@ -4,8 +4,10 @@ var level : Array = [
 	preload("res://Scenes/test.tscn"),
 	preload("res://Levels/Template_Level.tscn")
 ]
+
 var currentScene
 var l : int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	todo - auto add levels to the level Array *HERE*
@@ -28,8 +30,10 @@ func _process(delta: float) -> void:
 	pass
 
 func reset():
+	var temp = currentScene.instance() 
+	temp.name = "CurrentLevel"
 	get_child(0).queue_free()
-	add_child(currentScene.instance())
+	call_deferred("add_child", temp)
 	pass
 
 func next_Level():
@@ -39,7 +43,7 @@ func next_Level():
 	var temp = currentScene.instance() 
 	temp.name = "CurrentLevel"
 	get_child(0).queue_free()
-	add_child(temp)
+	call_deferred("add_child", temp)
 	pass
 
 func prev_Level():
@@ -48,5 +52,5 @@ func prev_Level():
 	var temp = currentScene.instance() 
 	temp.name = "CurrentLevel"
 	get_child(0).queue_free()
-	add_child(temp)
+	call_deferred("add_child", temp)
 	pass

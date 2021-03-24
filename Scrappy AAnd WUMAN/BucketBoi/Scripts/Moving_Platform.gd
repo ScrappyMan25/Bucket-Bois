@@ -28,3 +28,11 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 		temp[Orientation] *= -1
 		pass
 	pass # Replace with function body.
+
+
+func _on_Squish_Detector_body_entered(body: Node) -> void:
+	if body.name == "1" || body.name == "2" :
+		if body.is_on_floor() && !body.inBucket:
+			body.hit()
+			pass
+	pass # Replace with function body.
