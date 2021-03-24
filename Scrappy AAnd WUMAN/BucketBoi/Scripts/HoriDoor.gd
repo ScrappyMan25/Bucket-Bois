@@ -46,3 +46,4 @@ func _process(delta):
 		sound2 = false
 		pass 
 	pass
+	

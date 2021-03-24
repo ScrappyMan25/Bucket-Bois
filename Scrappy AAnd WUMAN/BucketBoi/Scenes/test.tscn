@@ -824,13 +824,15 @@ playing = true
 position = Vector2( 0.237671, 99.9687 )
 
 [node name="HoriPressurePlate" parent="HorizontalDoorSystem" index="2"]
-position = Vector2( 478.54, 432.488 )
+position = Vector2( 165.292, 441.68 )
 
 [node name="AnimatedSprite" parent="HorizontalDoorSystem/HoriPressurePlate" index="0"]
 playing = true
 
 [node name="Label" parent="HorizontalDoorSystem/HoriPressurePlate/AnimatedSprite" index="0"]
 text = "OFF"
+
+[node name="HorizontalDoorSystem" parent="HorizontalDoorSystem/HoriPressurePlate" index="2" instance=ExtResource( 11 )]
 
 [node name="Barrier2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 621.08, 290.518 )
@@ -845,8 +847,29 @@ speed = 200
 
 [node name="Music" parent="." instance=ExtResource( 10 )]
 
+[node name="HorizontalDoorSystem2" parent="." instance=ExtResource( 11 )]
+Orientation = 1
+
+[node name="HorizontalDoor" parent="HorizontalDoorSystem2" index="1"]
+position = Vector2( -26.7382, 582.266 )
+
+[node name="HoriPressurePlate" parent="HorizontalDoorSystem2" index="2"]
+position = Vector2( 374.6, 444.763 )
+
+[node name="DoorSystem2" parent="." instance=ExtResource( 4 )]
+
+[node name="Door" parent="DoorSystem2" index="1"]
+position = Vector2( 527.242, 207.995 )
+
+[node name="PressurePlate" parent="DoorSystem2" index="2"]
+position = Vector2( 482.675, 449.88 )
+
 [editable path="PlayerPair"]
 
 [editable path="DoorSystem"]
 
 [editable path="HorizontalDoorSystem"]
+
+[editable path="HorizontalDoorSystem2"]
+
+[editable path="DoorSystem2"]
