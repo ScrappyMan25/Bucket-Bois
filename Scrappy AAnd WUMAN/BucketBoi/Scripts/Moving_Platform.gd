@@ -5,7 +5,8 @@ export (Type) var Orientation
 
 export (int) var speed
 
-var temp
+var temp : Array
+var players : Array
 
 func _ready() -> void:
 	temp = [
@@ -21,6 +22,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	position += temp[Orientation] * delta
+	for i in players:
+		i.position += temp[Orientation] * delta
+		pass
 	pass
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
@@ -35,4 +39,18 @@ func _on_Squish_Detector_body_entered(body: Node) -> void:
 		if body.is_on_floor() && !body.inBucket:
 			body.hit()
 			pass
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_entered(body: Node) -> void:
+	if body.name == "1" || body.name == "2":
+		players.push_front(body)
+		pass
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_exited(body: Node) -> void:
+	if body.name == "1" || body.name == "2":
+		players.remove(players.find(body))
+		pass
 	pass # Replace with function body.
