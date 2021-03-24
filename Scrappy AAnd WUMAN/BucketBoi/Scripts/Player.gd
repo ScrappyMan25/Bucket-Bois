@@ -31,6 +31,7 @@ func _physics_process(delta):
 		if !inBucket && focus:
 			if Input.is_action_just_pressed("ui_select"):
 				velocity.y = JUMP_SPEED
+				$SoundJump.play()
 	if focus:
 		get_input()
 	else:
@@ -43,12 +44,17 @@ func _physics_process(delta):
 func get_input():
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED
+#		if !$Moving.play():
+#			$Moving.play()
 		pass
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED
+#		if !$Moving.play():
+#			$Moving.play()
 		pass
 	else:
 		velocity.x = 0
+		$Moving.stop()
 	
 	if Input.is_action_just_released("ui_accept"):
 		swap_bucket()
@@ -69,6 +75,7 @@ func swap_bucket():
 		bucket = null
 		inBucket = !inBucket
 		SPEED = 200
+		$ToggleBucket.play()
 		pass
 	elif !inBucket && playerInBucketRange:
 		#despawn bucket
@@ -80,6 +87,7 @@ func swap_bucket():
 		#become a thing
 		inBucket = !inBucket
 		SPEED = 80
+		$ToggleBucket.play()
 	$AnimatedSprite.play(temp)
 	pass
 
