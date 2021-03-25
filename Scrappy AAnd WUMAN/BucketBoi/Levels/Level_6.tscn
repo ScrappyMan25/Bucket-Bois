@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16_CASTPIXEL-16_1_2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Barrier.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Glacier.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Music.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -1740,6 +1741,8 @@ position = Vector2( 304, 384 )
 
 [node name="Barrier2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 496, 384 )
+
+[node name="Music" parent="." instance=ExtResource( 11 )]
 
 [editable path="PlayerPair"]
 
