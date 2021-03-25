@@ -6,6 +6,7 @@ var control : bool = false
 var player = null
 var velocity: Vector2
 
+var topBucket
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,19 +20,23 @@ func _physics_process(delta: float) -> void:
 		velocity.y = MX_GRAVITY
 	if is_on_floor():
 		velocity.y = 0
+		GRAVITY = 0
+	else:
+		GRAVITY = 300
 	if control && Input.is_key_pressed(KEY_SHIFT) && !player.inBucket:
 		move_and_slide(Vector2(player.velocity.x, velocity.y), Vector2(0,-1))
 		pass
 	else:
 		move_and_slide(velocity, Vector2(0,-1))
 		pass
+	if topBucket && !topBucket.control:
+		topBucket.position.x = position.x
 	pass
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if (body.name == "1" || body.name == "2"):
 		body.set_deferred("playerInBucketRange",true)
 		body.set_deferred("bucket",self)
-		print("InRange")
 		control = true
 		player = body
 		pass
@@ -40,8 +45,17 @@ func _on_Area2D_body_entered(body: Node) -> void:
 func _on_Area2D_body_exited(body: Node) -> void:
 	if (body.name == "1" || body.name == "2"):
 		body.set_deferred("playerInBucketRange",false)
-		print("OutRange")
 		control = false
 		player = null
 		pass
+	pass # Replace with function body.
+
+func _on_Stack_body_entered(body: Node) -> void:
+	if "Bocket" in body.name:
+		topBucket = body
+	pass # Replace with function body.
+
+func _on_Stack_body_exited(body: Node) -> void:
+	if "Bocket" in body.name:
+		topBucket = null
 	pass # Replace with function body.

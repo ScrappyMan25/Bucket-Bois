@@ -75,8 +75,9 @@ extents = Vector2( 31.6939, 32.1499 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
-animation = "2_Bocket"
+animation = "1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )

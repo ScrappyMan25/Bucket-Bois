@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Sprites/bucket.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Bocket.gd" type="Script" id=2]
@@ -20,7 +20,10 @@ animations = [ {
 extents = Vector2( 31.9234, 32.0248 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 37.8689, 26.6359 )
+extents = Vector2( 48.3324, 26.6359 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32.0459, 1.75001 )
 
 [node name="Bocket" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -34,9 +37,16 @@ frames = SubResource( 4 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="PushPullArea" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="Stack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stack"]
+position = Vector2( 0, -34.6974 )
+shape = SubResource( 5 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Stack" to="." method="_on_Stack_body_entered"]
+[connection signal="body_exited" from="Stack" to="." method="_on_Stack_body_exited"]

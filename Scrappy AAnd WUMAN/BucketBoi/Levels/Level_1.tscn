@@ -909,7 +909,7 @@ position = Vector2( 816, 384 )
 position = Vector2( 216, 560 )
 
 [node name="Bocket" parent="." instance=ExtResource( 6 )]
-position = Vector2( 280, 512 )
+position = Vector2( 363.245, 388.322 )
 
 [node name="Bocket2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 368, 512 )
