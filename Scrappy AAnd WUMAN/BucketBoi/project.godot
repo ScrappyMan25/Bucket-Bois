@@ -28,12 +28,13 @@ _global_script_class_icons={
 
 config/name="Bucket Boi"
 run/main_scene="res://Scenes/LevelManager.tscn"
+boot_splash/fullsize=false
 config/icon="res://Assets/icon.png"
 
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [input]
 

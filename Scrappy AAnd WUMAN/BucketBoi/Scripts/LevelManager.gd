@@ -34,6 +34,10 @@ func _process(delta: float) -> void:
 		next_Level()
 	if Input.is_action_just_released("ui_page_up"):
 		prev_Level()
+	if Input.is_action_just_released("ui_cancel"):
+		currentScene = level[0]
+		reset()
+		pass
 	pass
 
 func reset():
