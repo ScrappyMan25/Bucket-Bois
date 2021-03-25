@@ -20,6 +20,7 @@ var state_machine
 
 func _ready() -> void:
 	scale = Vector2(scale.x/2, scale.y/2)
+	$AnimatedSprite.play(name)
 	$AnimatedSprite.scale = Vector2(scale.x/2, scale.y/2)
 	pass
 
@@ -75,12 +76,11 @@ func get_input():
 
 func swap_bucket():
 	#set sprite
-	var temp : String
 	if inBucket:
 	#become Player
-		temp = name
 		scale = Vector2(scale.x/2, scale.y/2)
 		$AnimatedSprite.scale = Vector2(scale.x/2, scale.y/2)
+		$AnimatedSprite.play(name)
 	#spawn buck
 		bucket = bucket_asset.instance()
 		bucket.position = Vector2(self.position.x+5, self.position.y)
@@ -93,16 +93,15 @@ func swap_bucket():
 	elif !inBucket && playerInBucketRange:
 		#despawn bucket
 		#become Bucekt
-		temp = "Bucket"
 		scale = Vector2(scale.x*2, scale.y*2)
-		$AnimatedSprite.scale = Vector2(scale.x, scale.y)
+		$AnimatedSprite.scale = Vector2(0.125, 0.125)
+		$AnimatedSprite.play(name+"_Bocket")
 		if bucket != null:
 			bucket.queue_free()
 		#become a thing
 		inBucket = !inBucket
 		SPEED = 80
 		$ToggleBucket.play()
-	$AnimatedSprite.play(temp)
 	pass
 
 func hit():
