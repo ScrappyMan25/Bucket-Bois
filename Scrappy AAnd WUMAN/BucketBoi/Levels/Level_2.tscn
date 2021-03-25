@@ -930,12 +930,12 @@ Distance = 400
 position = Vector2( 824, 576 )
 
 [node name="HoriPressurePlate" parent="HorizontalDoorSystem" index="2"]
-position = Vector2( 568, 576 )
+position = Vector2( 573.11, 536.184 )
 
 [node name="Music" parent="." instance=ExtResource( 7 )]
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 376, 288 )
+position = Vector2( 372.224, 283.281 )
 speed = Vector2( 100, 1000 )
 
 [node name="Barrier" parent="." instance=ExtResource( 8 )]

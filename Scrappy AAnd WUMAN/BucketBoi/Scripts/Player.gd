@@ -92,11 +92,10 @@ func swap_bucket():
 	#become Player
 	#spawn buck
 		scale = Vector2(scale.x/2, scale.y/2)
-		$AnimatedSprite.scale = Vector2(scale.x/2, scale.y/2)
+		$AnimatedSprite.scale = Vector2(0.25, 0.25)
 		$AnimatedSprite.play(name)
 		bucket = bucket_asset.instance()
-		bucket.position = Vector2(self.position.x, self.position.y)
-		position.x -= 5
+		bucket.position = Vector2(self.position.x +5, self.position.y)
 		scene.add_child(bucket)
 		bucket = null
 		inBucket = !inBucket

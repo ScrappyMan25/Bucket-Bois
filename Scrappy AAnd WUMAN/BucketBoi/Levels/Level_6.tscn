@@ -1697,7 +1697,7 @@ position = Vector2( 80, 320 )
 position = Vector2( 160, 216 )
 
 [node name="PressurePlate" parent="DoorSystem" index="2"]
-position = Vector2( 944, 592 )
+position = Vector2( 941.003, 554.542 )
 
 [node name="Bocket" parent="." instance=ExtResource( 6 )]
 position = Vector2( 392, 544 )
@@ -1726,20 +1726,19 @@ position = Vector2( 88, 512 )
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 424, 384 )
 
+[node name="AnimatedSprite" parent="Enemy" index="0"]
+frame = 3
+
 [node name="Glacier" parent="." instance=ExtResource( 10 )]
-visible = false
 position = Vector2( 600, 392 )
 
 [node name="Glacier2" parent="." instance=ExtResource( 10 )]
-visible = false
 position = Vector2( 664, 392 )
 
 [node name="Glacier3" parent="." instance=ExtResource( 10 )]
-visible = false
 position = Vector2( 728, 392 )
 
 [node name="Glacier4" parent="." instance=ExtResource( 10 )]
-visible = false
 position = Vector2( 792, 392 )
 
 [node name="Barrier" parent="." instance=ExtResource( 9 )]

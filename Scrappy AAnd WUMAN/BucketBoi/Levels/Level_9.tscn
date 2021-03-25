@@ -1677,11 +1677,9 @@ resource_local_to_scene = true
 swap_limit = 9
 
 [node name="1" parent="PlayerPair" index="0"]
-visible = false
 position = Vector2( 80, 432 )
 
 [node name="2" parent="PlayerPair" index="1"]
-visible = false
 position = Vector2( 312, 528 )
 
 [node name="Player1_Finish" parent="PlayerPair" index="3"]
@@ -1733,7 +1731,7 @@ position = Vector2( 72, 544 )
 position = Vector2( 736, 592 )
 
 [node name="HoriPressurePlate" parent="HorizontalDoorSystem" index="2"]
-position = Vector2( 416, 592 )
+position = Vector2( 418.52, 554.202 )
 
 [node name="Music" parent="." instance=ExtResource( 5 )]
 
