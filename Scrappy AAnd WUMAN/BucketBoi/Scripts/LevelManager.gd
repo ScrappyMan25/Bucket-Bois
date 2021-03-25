@@ -1,8 +1,15 @@
 extends Node
 
 var level : Array = [
-	preload("res://Scenes/test.tscn"),
-	preload("res://Levels/Template_Level.tscn")
+	preload("res://Interface/MainMenu.tscn"),
+	preload("res://Levels/Level_2.tscn"),
+	preload("res://Levels/Level_4.tscn"),
+	preload("res://Levels/Level_5.tscn"),
+	preload("res://Levels/Level_6.tscn"),
+	preload("res://Levels/Level_7.tscn"),
+	preload("res://Levels/Level_8.tscn"),
+	preload("res://Levels/Level_9.tscn"),
+	preload("res://Interface/MainMenu.tscn")
 ]
 
 var currentScene
@@ -16,7 +23,6 @@ func _ready() -> void:
 	temp.name = "CurrentLevel"
 	add_child(temp)
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
