@@ -16,9 +16,15 @@ position = Vector2( 673.28, 311.461 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512.78, 298.769 )
+scale = Vector2( 1.26907, -1.16806 )
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1020
+limit_bottom = 600
 smoothing_enabled = true
 smoothing_speed = 3.0
+editor_draw_limits = true
 
 [node name="Player1_Finish" parent="." instance=ExtResource( 3 )]
 position = Vector2( 793.7, 312.718 )
