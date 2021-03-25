@@ -1,6 +1,7 @@
 extends Node
 
 var level : Array = [
+	preload("res://Interface/MainMenu.tscn"),
 	preload("res://Scenes/test.tscn"),
 	preload("res://Levels/Template_Level.tscn")
 ]

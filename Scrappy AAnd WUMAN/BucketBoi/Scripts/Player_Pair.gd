@@ -5,7 +5,6 @@ var p2 # player 2
 var p # Player current
 var scene = get_parent()
 export (int) var swap_limit = 10
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	p1 = $"1"
@@ -35,6 +34,7 @@ func swap():
 	else:
 		p = p1
 		pass
+	$SwapPlayer.play()
 	p.focus = true
 	pass
 
@@ -43,13 +43,13 @@ func swap():
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
 		swap_limit -= 1
-		if swap_limit < 0:
+		if swap_limit < 0:			
 			p.hit()
 		swap()
 		get_node("../UI").update_swap_counter(swap_limit)
 		pass
 	$Camera2D.position = p.position
 	pass
-
+	
 func check_finish() -> bool:
 	return p1.finish && p2.finish

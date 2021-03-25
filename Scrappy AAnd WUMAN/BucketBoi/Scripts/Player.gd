@@ -16,6 +16,8 @@ var bucket = null
 var scene = null
 var bucket_asset = preload("res://Scenes/Bocket.tscn")
 
+var state_machine
+
 func _ready() -> void:
 	scale = Vector2(scale.x/2, scale.y/2)
 	pass
@@ -44,13 +46,15 @@ func _physics_process(delta):
 func get_input():
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED
-#		if !$Moving.play():
-#			$Moving.play()
+		
+		if !$Moving.playing && is_on_floor():
+			$Moving.play()
 		pass
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED
-#		if !$Moving.play():
-#			$Moving.play()
+		
+		if !$Moving.playing && is_on_floor():
+			$Moving.play()
 		pass
 	else:
 		velocity.x = 0
@@ -93,6 +97,7 @@ func swap_bucket():
 
 func hit():
 	print("hit")
+	$Death.play()
 	find_parent("LevelManager").reset()
 	pass
 
