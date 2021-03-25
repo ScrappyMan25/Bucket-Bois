@@ -1,18 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/blue_color.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Glacier.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/enemy3.png" type="Texture" id=3]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 1024, 1024 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1024, 0, 1024, 1024 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 1024, 1024, 1024 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1024, 1024, 1024, 1024 )
+
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "default",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "falling",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24.1533, 41.7128 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 24.1533, 24.6696 )
 
 [node name="Glacier" type="KinematicBody2D"]
 position = Vector2( 473.139, 573.689 )
@@ -23,8 +48,12 @@ enabled = true
 cast_to = Vector2( 0, 600 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 1.484, 2.587 )
-frames = SubResource( 1 )
+position = Vector2( -0.104957, -6.97214 )
+scale = Vector2( 0.0482634, 0.0482634 )
+frames = SubResource( 5 )
+animation = "falling"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+position = Vector2( 0, -7.14758 )
+shape = SubResource( 6 )

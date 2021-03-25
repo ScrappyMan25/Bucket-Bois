@@ -18,13 +18,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if $RayCast2D.get_collider():
 		if $RayCast2D.get_collider().get("name") == "1" || $RayCast2D.get_collider().get("name") == "2":
-#			if  !playerDetected:
-#				velocity.y = -2000
 			playerDetected = true
+			$AnimatedSprite.play("falling")
 		else:
 #			if  playerDetected:
 #				velocity.y = 0
 			playerDetected = false
+			$AnimatedSprite.play("default")
 			pass
 	pass
 
