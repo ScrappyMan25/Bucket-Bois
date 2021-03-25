@@ -76,7 +76,7 @@ script = ExtResource( 2 )
 anims/Door = SubResource( 1 )
 
 [node name="Door" type="StaticBody2D" parent="."]
-position = Vector2( 0, -125 )
+position = Vector2( 0, -50 )
 z_index = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Door"]
