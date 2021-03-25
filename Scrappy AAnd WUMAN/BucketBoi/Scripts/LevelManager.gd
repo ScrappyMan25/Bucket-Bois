@@ -2,8 +2,13 @@ extends Node
 
 var level : Array = [
 	preload("res://Interface/MainMenu.tscn"),
-	preload("res://Scenes/test.tscn"),
-	preload("res://Levels/Template_Level.tscn")
+	preload("res://Levels/Level_2.tscn"),
+	preload("res://Levels/Level_4.tscn"),
+	preload("res://Levels/Level_5.tscn"),
+	preload("res://Levels/Level_6.tscn"),
+	preload("res://Levels/Level_7.tscn"),
+	preload("res://Levels/Level_8.tscn"),
+	preload("res://Levels/Level_9.tscn"),
 ]
 
 var currentScene
