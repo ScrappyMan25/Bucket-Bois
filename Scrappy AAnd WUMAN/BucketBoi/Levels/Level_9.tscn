@@ -1674,7 +1674,6 @@ resource_local_to_scene = true
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
 [node name="PlayerPair" parent="." instance=ExtResource( 4 )]
-swap_limit = 9
 
 [node name="1" parent="PlayerPair" index="0"]
 position = Vector2( 96, 360 )

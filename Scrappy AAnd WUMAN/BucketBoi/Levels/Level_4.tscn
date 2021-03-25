@@ -2464,6 +2464,7 @@ resource_local_to_scene = true
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
 [node name="PlayerPair" parent="." instance=ExtResource( 4 )]
+swap_limit = 4
 
 [node name="1" parent="PlayerPair" index="0"]
 position = Vector2( 72, 208 )
@@ -2510,19 +2511,19 @@ tile_data = PoolIntArray( 655382, 3, 1, 655383, 3, 1, 655384, 3, 1, 655385, 3, 1
 position = Vector2( 715.175, 463.332 )
 
 [node name="AnimatedSprite" parent="JumpingEnemy" index="0"]
-frame = 3
+frame = 2
 
 [node name="JumpingEnemy2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 912, 408 )
 
 [node name="AnimatedSprite" parent="JumpingEnemy2" index="0"]
-frame = 3
+frame = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 344, 554.054 )
 
 [node name="AnimatedSprite" parent="Enemy" index="0"]
-frame = 5
+frame = 1
 
 [node name="Music" parent="." instance=ExtResource( 9 )]
 

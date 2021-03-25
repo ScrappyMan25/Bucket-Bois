@@ -1690,7 +1690,7 @@ tracks/0/keys = {
 [node name="UI" parent="." instance=ExtResource( 3 )]
 
 [node name="PlayerPair" parent="." instance=ExtResource( 4 )]
-swap_limit = 9
+swap_limit = 7
 
 [node name="1" parent="PlayerPair" index="0"]
 visible = false
