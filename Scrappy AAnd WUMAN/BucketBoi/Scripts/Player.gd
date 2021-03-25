@@ -20,6 +20,7 @@ var state_machine
 
 func _ready() -> void:
 	scale = Vector2(scale.x/2, scale.y/2)
+	$AnimatedSprite.scale = Vector2(scale.x/2, scale.y/2)
 	pass
 
 func _physics_process(delta):
@@ -38,25 +39,32 @@ func _physics_process(delta):
 		get_input()
 	else:
 		velocity.x = 0
-		
-#	for i in get_slide_count():
-#		print(get_slide_collision(i).collider.name)
 	pass
 
 func get_input():
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED
-		
+		if !inBucket:
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play(name+"_Move")
+			pass
 		if !$Moving.playing && is_on_floor():
 			$Moving.play()
+			pass
 		pass
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED
-		
+		if !inBucket:
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play(name+"_Move")
+			pass
 		if !$Moving.playing && is_on_floor():
 			$Moving.play()
+			pass
 		pass
 	else:
+		if !inBucket:
+			$AnimatedSprite.play(name)
 		velocity.x = 0
 		$Moving.stop()
 	
@@ -72,6 +80,7 @@ func swap_bucket():
 	#become Player
 		temp = name
 		scale = Vector2(scale.x/2, scale.y/2)
+		$AnimatedSprite.scale = Vector2(scale.x/2, scale.y/2)
 	#spawn buck
 		bucket = bucket_asset.instance()
 		bucket.position = Vector2(self.position.x+5, self.position.y)
@@ -86,6 +95,7 @@ func swap_bucket():
 		#become Bucekt
 		temp = "Bucket"
 		scale = Vector2(scale.x*2, scale.y*2)
+		$AnimatedSprite.scale = Vector2(scale.x, scale.y)
 		if bucket != null:
 			bucket.queue_free()
 		#become a thing

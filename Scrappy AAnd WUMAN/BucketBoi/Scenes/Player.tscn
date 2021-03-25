@@ -19,10 +19,7 @@
 [ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_205.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_204.png" type="Texture" id=19]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.6939, 32.1499 )
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -34,11 +31,6 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "2_Move",
@@ -48,17 +40,26 @@ animations = [ {
 "loop": true,
 "name": "1_Move",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.6939, 32.1499 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
-animation = "Bucket"
+frames = SubResource( 1 )
+animation = "1_Move"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
