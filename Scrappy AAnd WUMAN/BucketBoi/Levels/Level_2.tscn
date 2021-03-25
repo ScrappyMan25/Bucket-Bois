@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16_CASTPIXEL-16_1_2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Player_Pair.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HorizontalDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Bocket.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -936,6 +937,10 @@ position = Vector2( 824, 576 )
 
 [node name="HoriPressurePlate" parent="HorizontalDoorSystem" index="2"]
 position = Vector2( 568, 576 )
+
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 433.36, 273.033 )
+speed = Vector2( 200, 1000 )
 
 [editable path="PlayerPair"]
 
