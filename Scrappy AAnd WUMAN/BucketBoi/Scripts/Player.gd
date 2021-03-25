@@ -8,6 +8,10 @@ var SPEED = 200
 var velocity = Vector2.ZERO
 var finish = false
 
+var inFlag : bool
+
+var pullrev :bool
+
 var focus : bool = true
 var inBucket:bool = false
 var playerInBucketRange = false
@@ -33,11 +37,13 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = 0
 		if !inBucket && focus:
-			if Input.is_action_just_pressed("ui_select"):
+			if Input.is_action_just_pressed("ui_select") && !inFlag:
 				velocity.y = JUMP_SPEED
 				$SoundJump.play()
-	if focus:
+	if focus && !inFlag:
 		get_input()
+	elif !inBucket:
+		$AnimatedSprite.play(name)
 	else:
 		velocity.x = 0
 	pass
@@ -47,6 +53,9 @@ func get_input():
 		velocity.x = -SPEED
 		if !inBucket:
 			$AnimatedSprite.flip_h = true
+			if Input.is_key_pressed(KEY_SHIFT) && pullrev:
+				$AnimatedSprite.flip_h = false
+				pass
 			$AnimatedSprite.play(name+"_Move")
 			pass
 		if !$Moving.playing && is_on_floor():
@@ -57,6 +66,9 @@ func get_input():
 		velocity.x = SPEED
 		if !inBucket:
 			$AnimatedSprite.flip_h = false
+			if Input.is_key_pressed(KEY_SHIFT) && pullrev:
+				$AnimatedSprite.flip_h = true
+				pass
 			$AnimatedSprite.play(name+"_Move")
 			pass
 		if !$Moving.playing && is_on_floor():
@@ -78,12 +90,13 @@ func swap_bucket():
 	#set sprite
 	if inBucket:
 	#become Player
+	#spawn buck
 		scale = Vector2(scale.x/2, scale.y/2)
 		$AnimatedSprite.scale = Vector2(scale.x/2, scale.y/2)
 		$AnimatedSprite.play(name)
-	#spawn buck
 		bucket = bucket_asset.instance()
-		bucket.position = Vector2(self.position.x+5, self.position.y)
+		bucket.position = Vector2(self.position.x, self.position.y)
+		position.x -= 5
 		scene.add_child(bucket)
 		bucket = null
 		inBucket = !inBucket
@@ -117,4 +130,17 @@ func finish():
 
 func set_sprite(sprite):
 	$AnimatedSprite.play(sprite)
+	pass
+
+func pull():
+	$AnimatedSprite.play(name+"_Pull")
+	pass
+
+func push():
+#	if !$AnimatedSprite.playing(name+"_Push"):
+	$AnimatedSprite.play(name+"_Push")
+	pass
+
+func playFlag():
+	$PickUp.play()
 	pass

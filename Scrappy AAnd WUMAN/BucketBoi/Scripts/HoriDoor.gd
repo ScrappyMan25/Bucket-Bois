@@ -5,6 +5,7 @@ export var Distance = 125
 enum Type {VerticalMovement = 0, HorizontalMovement = 1}
 export (Type) var Orientation
 var stopMove = false
+
 func _ready() -> void:
 	
 	current_color = colors[TYPE]
@@ -14,8 +15,8 @@ func _ready() -> void:
 	animation = $AnimationPlayer2
 	door = $HorizontalDoor/AnimatedSprite
 	
-	pressurePlate.play(current_color)
-	door.play(current_color)
+	pressurePlate.play("OFF")
+	door.play("default")
 	pressurePlate_Lable.text = state_dict[state]
 	
 	animation.get_animation("Door").track_set_key_value(0, 0, Vector2($HorizontalDoor.position.x, $HorizontalDoor.position.y))

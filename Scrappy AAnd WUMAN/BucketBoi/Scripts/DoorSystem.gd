@@ -11,8 +11,8 @@ func _ready() -> void:
 	animation = $AnimationPlayer
 	door = $Door/AnimatedSprite
 
-	pressurePlate.play(current_color)
-	door.play(current_color)
+	pressurePlate.play("OFF")
+	door.play("default")
 
 	pressurePlate_Lable.text = state_dict[state]
 	animation.get_animation("Door").track_set_key_value(0, 0, Vector2($Door.position.x, $Door.position.y))

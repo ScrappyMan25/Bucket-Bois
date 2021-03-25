@@ -24,6 +24,33 @@ func _physics_process(delta: float) -> void:
 	else:
 		GRAVITY = 300
 	if control && Input.is_key_pressed(KEY_SHIFT) && !player.inBucket:
+		if position.x - player.position.x > 0 :
+			#Left of Bucket
+			if player.velocity.x < 0:
+				#pulling
+				player.pullrev = true
+				player.pull()
+				pass
+			else:
+				#pushing
+				player.pullrev = false
+				player.push()
+				pass
+			pass
+		else:
+			#Right of Bucket
+			if player.velocity.x > 0:
+				#pulling
+				player.pullrev = true
+				player.pull()
+				pass
+			else:
+				#pushing
+				player.pullrev = false
+				player.push()
+				pass
+			pass
+			pass
 		move_and_slide(Vector2(player.velocity.x, velocity.y), Vector2(0,-1))
 		pass
 	else:

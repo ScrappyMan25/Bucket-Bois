@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Sprites/bucket.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -19,6 +19,19 @@
 [ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_05.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_205.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_204.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_10.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_08.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_11.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_12.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_13.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_09.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_210.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_213.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_208.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_212.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_211.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Sprites/SeperateSprites/sprite_209.png" type="Texture" id=31]
+[ext_resource path="res://SFX/Sound_effects/Sound effects/Pick up Item.wav" type="AudioStream" id=32]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -66,6 +79,26 @@ animations = [ {
 "loop": false,
 "name": "1_Bocket",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 25 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "1_Pull",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "1_Push",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 31 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "2_Pull",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "2_Push",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -77,7 +110,9 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
-animation = "1"
+animation = "2_Pull"
+frame = 2
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
@@ -96,4 +131,8 @@ volume_db = -20.0
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -20.0
+
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
 volume_db = -20.0

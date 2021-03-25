@@ -23,6 +23,7 @@ var sound2 = false
 func _on_PressurePlate_body_entered(_body: Node) -> void:
 	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || "Bocket" in _body.name:
 		state = true
+		pressurePlate.play("ON")
 		pressurePlate_Lable.text = state_dict[state]
 		sound = true
 		animation.play("Door")
@@ -31,7 +32,9 @@ func _on_PressurePlate_body_entered(_body: Node) -> void:
 func _on_PressurePlate_body_exited(_body: Node) -> void:
 	if ((_body.name == "1" || _body.name == "2") && _body.inBucket) || "Bocket" in _body.name:
 		print(_body.name)
+		pressurePlate.play("OFF")
 		state = false
+		
 		pressurePlate_Lable.text = state_dict[state]
 		sound2 = true
 		animation.play_backwards("Door")
