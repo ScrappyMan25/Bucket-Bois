@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16_CASTPIXEL-16_1_2.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/JumpingEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Music.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Barrier.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -2482,13 +2483,13 @@ position = Vector2( 944, 520 )
 position = Vector2( 880, 416 )
 
 [node name="PressurePlate" parent="DoorSystem" index="2"]
-position = Vector2( 658.964, 457.643 )
+position = Vector2( 656, 464 )
 
 [node name="Bocket" parent="." instance=ExtResource( 6 )]
-position = Vector2( 112, 528 )
+position = Vector2( 456, 544 )
 
 [node name="Bocket2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 424, 312 )
+position = Vector2( 432, 312 )
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 z_index = -3
@@ -2509,21 +2510,24 @@ tile_data = PoolIntArray( 655382, 3, 1, 655383, 3, 1, 655384, 3, 1, 655385, 3, 1
 position = Vector2( 715.175, 463.332 )
 
 [node name="AnimatedSprite" parent="JumpingEnemy" index="0"]
-frame = 6
+frame = 3
 
 [node name="JumpingEnemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 900.825, 404.888 )
+position = Vector2( 912, 408 )
 
 [node name="AnimatedSprite" parent="JumpingEnemy2" index="0"]
-frame = 6
+frame = 3
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 344, 554.054 )
 
 [node name="AnimatedSprite" parent="Enemy" index="0"]
-frame = 3
+frame = 5
 
 [node name="Music" parent="." instance=ExtResource( 9 )]
+
+[node name="Barrier" parent="." instance=ExtResource( 10 )]
+position = Vector2( 40, 552 )
 
 [editable path="PlayerPair"]
 

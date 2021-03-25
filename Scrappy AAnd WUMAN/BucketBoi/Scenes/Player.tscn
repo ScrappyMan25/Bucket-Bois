@@ -36,12 +36,12 @@
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 512, 0, 512, 512 )
+region = Rect2( 0, 512, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 512, 512, 512 )
+region = Rect2( 512, 0, 512, 512 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -72,17 +72,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 1 ) ],
 "loop": false,
-"name": "2_Bocket",
+"name": "1_Bocket",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ) ],
 "loop": false,
-"name": "1_Bocket",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 25 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "1_Pull",
+"name": "2_Bocket",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 23 ) ],
@@ -99,6 +94,11 @@ animations = [ {
 "loop": true,
 "name": "2_Push",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 25 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "1_Pull",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -111,6 +111,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
 animation = "2_Pull"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

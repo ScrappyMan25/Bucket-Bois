@@ -887,6 +887,7 @@ resource_local_to_scene = true
 [node name="UI" parent="." instance=ExtResource( 1 )]
 
 [node name="PlayerPair" parent="." instance=ExtResource( 4 )]
+swap_limit = 4
 
 [node name="1" parent="PlayerPair" index="0"]
 position = Vector2( 64, 128 )
@@ -906,7 +907,7 @@ position = Vector2( 71.9999, 520 )
 position = Vector2( 208, 384 )
 
 [node name="PressurePlate" parent="DoorSystem" index="2"]
-position = Vector2( 912.929, 523.23 )
+position = Vector2( 912, 528 )
 
 [node name="Bocket" parent="." instance=ExtResource( 2 )]
 position = Vector2( 200, 128 )

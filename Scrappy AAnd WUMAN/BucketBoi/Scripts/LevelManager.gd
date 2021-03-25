@@ -3,6 +3,7 @@ extends Node
 var level : Array = [
 	preload("res://Interface/MainMenu.tscn"),
 	preload("res://Levels/Level_2.tscn"),
+	preload("res://Levels/Level_3.tscn"),
 	preload("res://Levels/Level_4.tscn"),
 	preload("res://Levels/Level_5.tscn"),
 	preload("res://Levels/Level_6.tscn"),

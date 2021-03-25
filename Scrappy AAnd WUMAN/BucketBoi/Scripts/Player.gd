@@ -31,7 +31,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	var snap = Vector2.DOWN * 16 if !is_on_floor() else Vector2.ZERO
-	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0,-1))
+	velocity = move_and_slide(velocity, Vector2(0,-1))
 	if velocity.y > MX_GRAVITY:
 		velocity.y = MX_GRAVITY
 	if is_on_floor():

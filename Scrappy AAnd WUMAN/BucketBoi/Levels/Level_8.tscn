@@ -1726,7 +1726,7 @@ Distance = 340
 position = Vector2( 264, 592 )
 
 [node name="HoriPressurePlate" parent="HorizontalDoorSystem" index="2"]
-position = Vector2( 939.78, 555.462 )
+position = Vector2( 944, 560 )
 
 [node name="Music" parent="." instance=ExtResource( 8 )]
 
