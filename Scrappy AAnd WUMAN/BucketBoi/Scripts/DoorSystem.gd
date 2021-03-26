@@ -10,6 +10,7 @@ func _ready() -> void:
 	pressurePlate_Lable = $PressurePlate/AnimatedSprite/Label
 	animation = $AnimationPlayer
 	door = $Door/AnimatedSprite
+	
 
 	pressurePlate.play("OFF")
 	door.play("default")
@@ -23,5 +24,6 @@ func _process(delta):
 	if sound == true && !$DoorSound.playing:
 		$DoorSound.play()
 		sound = false
+		var t : NodePath
 		pass
 	pass
