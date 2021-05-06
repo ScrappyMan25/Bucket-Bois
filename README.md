@@ -1,5 +1,12 @@
 # Bucket Boys
 
+## About
+
+Jam : [Weekly Game Jam 193](https://itch.io/jam/weekly-game-jam-193)
+
+Itch.io page (Playable) : [Bucket Boys](https://teamapplepie.itch.io/bucketboys)
+
+
 ## Overview:
 
 Bucket Boys is a relatively simple turn based platformer where you have a set amount of switches between two player characters to reach the flags at end of the level.
